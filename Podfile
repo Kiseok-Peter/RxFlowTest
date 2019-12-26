@@ -8,6 +8,10 @@ target 'RxFlowTest' do
   
   # Pods for RxFlowTest
   # Rx
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  
+  pod 'RxFlow'
   
   # Network
   
