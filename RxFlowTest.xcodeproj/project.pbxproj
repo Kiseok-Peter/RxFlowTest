@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		495E064B23B4B7770085E268 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 495E064A23B4B7770085E268 /* .swiftlint.yml */; };
+		495E064F23B5C7730085E268 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E064E23B5C7730085E268 /* SearchViewController.swift */; };
+		495E065223B5C8340085E268 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E065123B5C8340085E268 /* BaseViewController.swift */; };
+		495E065623B5C99E0085E268 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E065523B5C99E0085E268 /* AppService.swift */; };
+		495E065823B5C9AF0085E268 /* AppServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E065723B5C9AF0085E268 /* AppServiceType.swift */; };
 		49E139F123B22C5700B167DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F023B22C5700B167DB /* AppDelegate.swift */; };
 		49E139F323B22C5700B167DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F223B22C5700B167DB /* SceneDelegate.swift */; };
 		49E139F523B22C5700B167DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F423B22C5700B167DB /* ViewController.swift */; };
@@ -39,6 +43,11 @@
 /* Begin PBXFileReference section */
 		07AC2978B85F4AB14CA8CC4C /* Pods-RxFlowTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxFlowTest.release.xcconfig"; path = "Target Support Files/Pods-RxFlowTest/Pods-RxFlowTest.release.xcconfig"; sourceTree = "<group>"; };
 		495E064A23B4B7770085E268 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		495E064E23B5C7730085E268 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		495E065123B5C8340085E268 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		495E065523B5C99E0085E268 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		495E065723B5C9AF0085E268 /* AppServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceType.swift; sourceTree = "<group>"; };
+		495E065A23B5CB2E0085E268 /* RxFlowTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxFlowTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		49E139ED23B22C5700B167DB /* RxFlowTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxFlowTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E139F023B22C5700B167DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E139F223B22C5700B167DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +92,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		495E064C23B4BCE90085E268 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				495E064D23B4BD250085E268 /* Search */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		495E064D23B4BD250085E268 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				495E064E23B5C7730085E268 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		495E065023B5C8270085E268 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				495E065123B5C8340085E268 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		495E065323B5C9710085E268 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		495E065423B5C98B0085E268 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				495E065523B5C99E0085E268 /* AppService.swift */,
+				495E065723B5C9AF0085E268 /* AppServiceType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		495E065923B5CB010085E268 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				49E139F623B22C5700B167DB /* Main.storyboard */,
+				49E139F923B22C5800B167DB /* Assets.xcassets */,
+				49E139FB23B22C5800B167DB /* LaunchScreen.storyboard */,
+				49E139FE23B22C5800B167DB /* Info.plist */,
+				495E065A23B5CB2E0085E268 /* RxFlowTest-Bridging-Header.h */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		49E139E423B22C5700B167DB = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +170,14 @@
 		49E139EF23B22C5700B167DB /* RxFlowTest */ = {
 			isa = PBXGroup;
 			children = (
+				495E065023B5C8270085E268 /* Base */,
+				495E065323B5C9710085E268 /* Network */,
+				495E065423B5C98B0085E268 /* Service */,
+				495E064C23B4BCE90085E268 /* Contents */,
+				495E065923B5CB010085E268 /* SupportFiles */,
 				49E139F023B22C5700B167DB /* AppDelegate.swift */,
 				49E139F223B22C5700B167DB /* SceneDelegate.swift */,
 				49E139F423B22C5700B167DB /* ViewController.swift */,
-				49E139F623B22C5700B167DB /* Main.storyboard */,
-				49E139F923B22C5800B167DB /* Assets.xcassets */,
-				49E139FB23B22C5800B167DB /* LaunchScreen.storyboard */,
-				49E139FE23B22C5800B167DB /* Info.plist */,
 			);
 			path = RxFlowTest;
 			sourceTree = "<group>";
@@ -226,6 +288,7 @@
 				TargetAttributes = {
 					49E139EC23B22C5700B167DB = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					49E13A0223B22C5800B167DB = {
 						CreatedOnToolsVersion = 11.3;
@@ -349,8 +412,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495E065223B5C8340085E268 /* BaseViewController.swift in Sources */,
+				495E065823B5C9AF0085E268 /* AppServiceType.swift in Sources */,
+				495E065623B5C99E0085E268 /* AppService.swift in Sources */,
 				49E139F523B22C5700B167DB /* ViewController.swift in Sources */,
 				49E139F123B22C5700B167DB /* AppDelegate.swift in Sources */,
+				495E064F23B5C7730085E268 /* SearchViewController.swift in Sources */,
 				49E139F323B22C5700B167DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +592,7 @@
 			baseConfigurationReference = 7DAEF3BE272977853D518CD1 /* Pods-RxFlowTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxFlowTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -533,6 +601,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ks.RxFlowTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RxFlowTest/SupportFiles/RxFlowTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -543,6 +613,7 @@
 			baseConfigurationReference = 07AC2978B85F4AB14CA8CC4C /* Pods-RxFlowTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxFlowTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -551,6 +622,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ks.RxFlowTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RxFlowTest/SupportFiles/RxFlowTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
