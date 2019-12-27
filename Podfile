@@ -12,6 +12,7 @@ target 'RxFlowTest' do
   pod 'RxCocoa'
   
   pod 'RxFlow'
+  pod 'Moya/RxSwift'
   
   # Network
   pod 'Moya'
