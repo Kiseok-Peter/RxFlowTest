@@ -26,6 +26,8 @@ class DefaultAlamofireManager: SessionManager {
 
 final class AppService: AppServieType {
     
+    // MARK: Singleton
+    
     static let shared = AppService()
     
     private init() {}

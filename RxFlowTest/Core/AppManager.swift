@@ -9,11 +9,13 @@
 final class AppManager {
     
     // MARK: Singleton
+    
     private init() {}
     
     static let shared = AppManager()
     
     // MARK: Constants
+    
     let naverId: String = "TUL3AgA_aGq0aeyPtjTV"
     let naverSecret: String = "xfmbZJVczf"
 }
