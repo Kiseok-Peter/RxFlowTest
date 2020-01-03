@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-class MovieCellNode: ASDisplayNode {
+class MovieCellNode: ASCellNode {
     
     // MARK: UI Properties
     
