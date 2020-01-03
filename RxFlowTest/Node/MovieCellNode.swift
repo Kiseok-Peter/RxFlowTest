@@ -53,27 +53,31 @@ class MovieCellNode: ASCellNode {
         node.maximumNumberOfLines = 0
         return node
     }()
+    
+    override init() {
+        super.init()
+        self.selectionStyle = .none
+        self.backgroundColor = .white
+        self.automaticallyManagesSubnodes = true
+    }
 }
 
 extension MovieCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let imageLayout = ASRatioLayoutSpec(ratio: 1.0, child: imageNode)
         let contentLayout = contentLayoutSpec()
         
         contentLayout.style.flexShrink = 1.0
         contentLayout.style.flexGrow = 1.0
-        
-        imageLayout.style.flexShrink = 1.0
-        imageLayout.style.flexGrow = 0.0
-//        imageLayout.style.flexBasis = ASDimension(unit: .fraction, value: 0.3)
-//        cotentsLayout.style.flexBasis = ASDimension(unit: .fraction, value: 0.7)
+
+        imageNode.style.flexShrink = 1.0
+        imageNode.style.flexGrow = 0.0
         
         let containerLayout = ASStackLayoutSpec(direction: .horizontal,
                                                 spacing: 10.0,
                                                 justifyContent: .start,
                                                 alignItems: .stretch,
-                                                children: [imageLayout, contentLayout])
+                                                children: [imageNode, contentLayout])
         
         var containerInsets: UIEdgeInsets = .zero
         containerInsets.left = 15.0

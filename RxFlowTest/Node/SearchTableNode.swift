@@ -45,8 +45,6 @@ class SearchTableNode: ASDisplayNode {
                                                 children: [searchNode, tableNode])
         
         var containerInsets: UIEdgeInsets = self.safeAreaInsets
-        containerInsets.left += 15
-        containerInsets.right += 15
         containerInsets.top = containerInsets.bottom
         
         return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
