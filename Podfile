@@ -13,6 +13,7 @@ target 'RxFlowTest' do
   
   pod 'RxFlow'
   pod 'Moya/RxSwift'
+  pod 'RxOptional'
   
   # Network
   pod 'Moya'
@@ -21,8 +22,10 @@ target 'RxFlowTest' do
   # Image
   
   # Ui
+  pod 'Texture'
   
   # Parse
+  pod 'ObjectMapper'
   
   # Etc
   pod 'SwiftLint'
