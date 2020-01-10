@@ -10,21 +10,38 @@ import AsyncDisplayKit
 
 final class SearchViewController: ASViewController<SearchTableNode> {
     
+    let viewModel = SearchViewModel()
+    let disposeBag = DisposeBag()
+    
     init() {
         super.init(node: SearchTableNode())
         
         node.tableNode.dataSource = self
+        
+        bindUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func bindUI() {
+        node.searchBar?.rx.text.orEmpty
+            .bind(to: viewModel.searchText)
+            .disposed(by: self.disposeBag)
+        
+        viewModel.items
+            .bind(onNext: { [weak self] _ in
+                self?.node.tableNode.reloadData()
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
 extension SearchViewController: ASTableDataSource {
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.items.value.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
