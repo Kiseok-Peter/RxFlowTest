@@ -8,9 +8,11 @@
 
 class MovieViewModel {
     
-    let item: MovieItem
+    let image = BehaviorRelay<URL?>(value: nil)
+    let title = BehaviorRelay<String>(value: "")
     
     init(item: MovieItem) {
-        self.item = item
+        image.accept(URL(string: item.image))
+        title.accept(item.title)
     }
 }

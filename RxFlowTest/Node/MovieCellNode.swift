@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class MovieCellNode: ASCellNode {
     
+    let disposeBag = DisposeBag()
+    
     // MARK: UI Properties
     
     let imageNode: ASNetworkImageNode = {
@@ -19,7 +21,7 @@ class MovieCellNode: ASCellNode {
         node.borderColor = UIColor.gray.cgColor
         node.borderWidth = 1
         node.cornerRadius = 15
-//        node.contentMode = .scaleAspectFill
+        //        node.contentMode = .scaleAspectFill
         node.clipsToBounds = true
         return node
     }()
@@ -54,11 +56,27 @@ class MovieCellNode: ASCellNode {
         return node
     }()
     
-    override init() {
+    init(viewModel: MovieViewModel) {
         super.init()
         self.selectionStyle = .none
         self.backgroundColor = .white
         self.automaticallyManagesSubnodes = true
+        
+        //        viewModel.image.asDriver(onErrorJustReturn: nil)
+        //            .drive(onNext: { [weak self] in
+        viewModel.image
+            .bind(onNext: { [weak self] in
+                self?.imageNode.url = $0
+            })
+            .disposed(by: self.disposeBag)
+        
+        viewModel.title
+            .bind(onNext: { [weak self] in
+                self?.titleNode.attributedText = NSAttributedString(string: $0,
+                                                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 15),
+                                                                                 .foregroundColor: UIColor.gray])
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -69,7 +87,7 @@ extension MovieCellNode {
         
         contentLayout.style.flexShrink = 1.0
         contentLayout.style.flexGrow = 1.0
-
+        
         imageNode.style.flexShrink = 1.0
         imageNode.style.flexGrow = 0.0
         

@@ -46,7 +46,8 @@ extension SearchViewController: ASTableDataSource {
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
         return {
-            return MovieCellNode()
+            let viewModel = self.viewModel.items.value[indexPath.row]
+            return MovieCellNode(viewModel: viewModel)
         }
     }
 }
