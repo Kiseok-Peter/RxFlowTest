@@ -51,3 +51,10 @@ extension SearchViewController: ASTableDataSource {
         }
     }
 }
+
+extension SearchViewController: ASTableDelegate {
+    
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        // TODO: 상세 화면 이동
+    }
+}
