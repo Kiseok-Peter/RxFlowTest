@@ -37,4 +37,7 @@ class SearchViewModel {
 
 extension SearchViewModel: Stepper {
     
+    public func pick() {
+        self.steps.accept(AppStep.detail)
+    }
 }
