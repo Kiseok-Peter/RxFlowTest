@@ -6,16 +6,24 @@
 //  Copyright © 2020 Peter. All rights reserved.
 //
 
+import RxFlow
+
 class SearchViewModel {
     
+    // Input
     let searchText = PublishRelay<String>()
     
+    // Output
     let items: BehaviorRelay<[MovieViewModel]> = BehaviorRelay(value: [])
     
     let disposeBag = DisposeBag()
     
+    // Stepper
+    var steps = PublishRelay<Step>()
+    
     init() {
-        searchText.distinctUntilChanged()
+        searchText.skip(1)
+            .distinctUntilChanged()
             .flatMap { AppService.shared.request(AppAPI.search($0)) }
             .map { MovieModel(JSONString: $0) }
             .filterNil()
@@ -25,4 +33,8 @@ class SearchViewModel {
             })
             .disposed(by: self.disposeBag)
     }
+}
+
+extension SearchViewModel: Stepper {
+    
 }

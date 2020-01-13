@@ -21,6 +21,9 @@
 		497EC1A623C86DA000FAF8C1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1A523C86DA000FAF8C1 /* SearchViewModel.swift */; };
 		497EC1A923C9858E00FAF8C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1A823C9858E00FAF8C1 /* DetailViewController.swift */; };
 		497EC1AD23C985BB00FAF8C1 /* DetailNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1AC23C985BB00FAF8C1 /* DetailNode.swift */; };
+		497EC1B023C9AC0900FAF8C1 /* SearchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1AF23C9AC0900FAF8C1 /* SearchFlow.swift */; };
+		497EC1B223C9B36300FAF8C1 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1B123C9B36300FAF8C1 /* AppFlow.swift */; };
+		497EC1B423C9CA3900FAF8C1 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EC1B323C9CA3900FAF8C1 /* AppStep.swift */; };
 		49E139F123B22C5700B167DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F023B22C5700B167DB /* AppDelegate.swift */; };
 		49E139F323B22C5700B167DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F223B22C5700B167DB /* SceneDelegate.swift */; };
 		49E139F523B22C5700B167DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E139F423B22C5700B167DB /* ViewController.swift */; };
@@ -66,6 +69,9 @@
 		497EC1A523C86DA000FAF8C1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		497EC1A823C9858E00FAF8C1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		497EC1AC23C985BB00FAF8C1 /* DetailNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNode.swift; sourceTree = "<group>"; };
+		497EC1AF23C9AC0900FAF8C1 /* SearchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlow.swift; sourceTree = "<group>"; };
+		497EC1B123C9B36300FAF8C1 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		497EC1B323C9CA3900FAF8C1 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		49E139ED23B22C5700B167DB /* RxFlowTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxFlowTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E139F023B22C5700B167DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E139F223B22C5700B167DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +206,16 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		497EC1AE23C9ABE600FAF8C1 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				497EC1B323C9CA3900FAF8C1 /* AppStep.swift */,
+				497EC1B123C9B36300FAF8C1 /* AppFlow.swift */,
+				497EC1AF23C9AC0900FAF8C1 /* SearchFlow.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		49E139E423B22C5700B167DB = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +242,7 @@
 		49E139EF23B22C5700B167DB /* RxFlowTest */ = {
 			isa = PBXGroup;
 			children = (
+				497EC1AE23C9ABE600FAF8C1 /* Flow */,
 				497EC1A223C8304200FAF8C1 /* ViewModel */,
 				4974ABC123BF3BAB00BD41D0 /* Node */,
 				4974ABBE23BF1A7B00BD41D0 /* Model */,
@@ -472,12 +489,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4974ABC023BF1A8D00BD41D0 /* MovieModel.swift in Sources */,
+				497EC1B223C9B36300FAF8C1 /* AppFlow.swift in Sources */,
 				495E065823B5C9AF0085E268 /* AppServiceType.swift in Sources */,
 				4974ABC523BF433900BD41D0 /* SearchTableNode.swift in Sources */,
 				4974ABC723BF439F00BD41D0 /* SearchNode.swift in Sources */,
+				497EC1B423C9CA3900FAF8C1 /* AppStep.swift in Sources */,
 				497EC1AD23C985BB00FAF8C1 /* DetailNode.swift in Sources */,
 				4974ABC323BF3BBF00BD41D0 /* MovieCellNode.swift in Sources */,
 				495E065E23B5CBF90085E268 /* AppAPI.swift in Sources */,
+				497EC1B023C9AC0900FAF8C1 /* SearchFlow.swift in Sources */,
 				495E065623B5C99E0085E268 /* AppService.swift in Sources */,
 				49E139F523B22C5700B167DB /* ViewController.swift in Sources */,
 				497EC1A623C86DA000FAF8C1 /* SearchViewModel.swift in Sources */,
