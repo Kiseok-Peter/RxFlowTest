@@ -17,6 +17,7 @@ final class SearchViewController: ASViewController<SearchTableNode> {
         super.init(node: SearchTableNode())
         
         node.tableNode.dataSource = self
+        node.tableNode.delegate = self
         
         bindUI()
     }
@@ -55,6 +56,6 @@ extension SearchViewController: ASTableDataSource {
 extension SearchViewController: ASTableDelegate {
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        // TODO: 상세 화면 이동
+        self.viewModel.pick()
     }
 }
