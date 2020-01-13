@@ -43,7 +43,7 @@ class AppFlow: Flow {
     
     private func navigationToSearchScreen() -> FlowContributors {
         let viewController = SearchViewController.init()
-        viewController.title = "Wishlist"
+        viewController.title = "Search"
         
         self.rootViewController.pushViewController(viewController, animated: true)
         
