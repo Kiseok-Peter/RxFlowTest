@@ -14,7 +14,7 @@ class AppFlow: Flow {
         return self.rootViewController
     }
     
-    private var rootViewController: UINavigationController = {
+    private lazy var rootViewController: UINavigationController = {
         let viewController = UINavigationController()
         return viewController
     }()
@@ -24,14 +24,31 @@ class AppFlow: Flow {
         
         switch step {
         case .search:
-            return self.navigationToSearch()
+            return self.navigationToSearchScreen()
+        default:
+            return .none
         }
     }
     
-    private func navigationToSearch() -> FlowContributors {
-        //        let flow = SearchFlow()
-        //        return .one(flowContributor: .contribute(withNextPresentable: <#T##Presentable#>, withNextStepper: <#T##Stepper#>))
-        return .none
+//    private func navigationToSearch() -> FlowContributors {
+//        let searchFlow = SearchFlow()
+//
+//        Flows.whenReady(flow1: searchFlow) { [unowned self] root in
+//            self.rootViewController.pushViewController(root, animated: false)
+//        }
+//
+//        return .one(flowContributor: .contribute(withNextPresentable: searchFlow,
+//                                                 withNextStepper: OneStepper(withSingleStep: AppStep.search)))
+//    }
+    
+    private func navigationToSearchScreen() -> FlowContributors {
+        let viewController = SearchViewController.init()
+        viewController.title = "Wishlist"
+        
+        self.rootViewController.pushViewController(viewController, animated: true)
+        
+        return .one(flowContributor: FlowContributor.contribute(withNextPresentable: viewController,
+                                                                withNextStepper: OneStepper(withSingleStep: AppStep.search)))
     }
 }
 

@@ -35,7 +35,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - Sniffer (2.0.0)
-  - SwiftLint (0.38.0)
+  - SwiftLint (0.38.2)
   - Texture (2.8.1):
     - Texture/AssetsLibrary (= 2.8.1)
     - Texture/Core (= 2.8.1)
@@ -99,7 +99,7 @@ SPEC CHECKSUMS:
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   Sniffer: 8818aff78371938472e70121eff907f5b0928049
-  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
+  SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
 PODFILE CHECKSUM: e4c025bc97527ffe7ed94d2a1e3115e9aac152fd
