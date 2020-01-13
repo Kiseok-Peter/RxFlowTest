@@ -44,8 +44,5 @@ class SearchTableNode: ASDisplayNode {
                                                 alignItems: .stretch,
                                                 children: [searchNode, tableNode])
         
-        var containerInsets: UIEdgeInsets = self.safeAreaInsets
-        containerInsets.top = containerInsets.bottom
-        
-        return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
+        return ASInsetLayoutSpec(insets: self.safeAreaInsets, child: containerLayout)
     }}
