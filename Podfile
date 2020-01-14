@@ -14,6 +14,7 @@ target 'RxFlowTest' do
   pod 'RxFlow'
   pod 'Moya/RxSwift'
   pod 'RxOptional'
+  pod 'RxCocoa-Texture'
   
   # Network
   pod 'Moya'

@@ -27,6 +27,10 @@ PODS:
   - Result (4.1.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxCocoa-Texture (2.7.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+    - Texture (~> 2.7)
   - RxFlow (2.2.0):
     - RxCocoa (>= 4.5.0)
     - RxSwift (>= 4.5.0)
@@ -62,6 +66,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - ObjectMapper
   - RxCocoa
+  - RxCocoa-Texture
   - RxFlow
   - RxOptional
   - RxSwift
@@ -79,6 +84,7 @@ SPEC REPOS:
     - PINRemoteImage
     - Result
     - RxCocoa
+    - RxCocoa-Texture
     - RxFlow
     - RxOptional
     - RxSwift
@@ -95,6 +101,7 @@ SPEC CHECKSUMS:
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxCocoa-Texture: 3cdabc0528107b1afeb7ae622a92605183330045
   RxFlow: f8cdfc0be3c837464fad1fcd28187fd414bcc716
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
@@ -102,6 +109,6 @@ SPEC CHECKSUMS:
   SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: e4c025bc97527ffe7ed94d2a1e3115e9aac152fd
+PODFILE CHECKSUM: 1faa6975c9572a70132ebfcef4a2bcb8ee4ffb7f
 
 COCOAPODS: 1.8.4
