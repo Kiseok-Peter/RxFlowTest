@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class DetailNode: ASDisplayNode {
     
+    let disposeBag = DisposeBag()
+    
     // MARK: UI Properties
     let imageNode: ASNetworkImageNode = {
         let node = ASNetworkImageNode()
@@ -54,15 +56,20 @@ class DetailNode: ASDisplayNode {
     
     // MARK: Node Life Cycle
     
-    override init() {
+    init(viewModel: MovieViewModel) {
         super.init()
         self.backgroundColor = .white
         self.automaticallyManagesSubnodes = true
         self.automaticallyRelayoutOnSafeAreaChanges = true
         
-        self.titleNode.attributedText = NSAttributedString(string: "제목",
-                                                           attributes: [.font: UIFont.boldSystemFont(ofSize: 20),
-                                                                        .paragraphStyle: centerParagraphStyle])
+        viewModel.title
+            .bind(onNext: { [weak self] in
+                self?.titleNode.attributedText = NSAttributedString(string: $0,
+                                                                    attributes: [.font: UIFont.boldSystemFont(ofSize: 20),
+                                                                                 .paragraphStyle: self?.centerParagraphStyle ?? NSMutableParagraphStyle()])
+            })
+            .disposed(by: self.disposeBag)
+        
         self.subtitleNode.attributedText = NSAttributedString(string: "부제목",
                                                               attributes: [.font: UIFont.systemFont(ofSize: 16),
                                                                            .foregroundColor: UIColor.gray,

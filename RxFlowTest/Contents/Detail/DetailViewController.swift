@@ -10,8 +10,8 @@ import AsyncDisplayKit
 
 class DetailViewController: ASViewController<DetailNode> {
     
-    init() {
-        super.init(node: DetailNode.init())
+    init(viewModel: MovieViewModel) {
+        super.init(node: DetailNode.init(viewModel: viewModel))
     }
     
     required init?(coder: NSCoder) {

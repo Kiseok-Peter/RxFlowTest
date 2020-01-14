@@ -56,6 +56,6 @@ extension SearchViewController: ASTableDataSource {
 extension SearchViewController: ASTableDelegate {
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.pick()
+        self.viewModel.pick(index: indexPath.row)
     }
 }
