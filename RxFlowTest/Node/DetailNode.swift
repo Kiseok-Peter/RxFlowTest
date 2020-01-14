@@ -8,7 +8,13 @@
 
 import AsyncDisplayKit
 
+import RxCocoa_Texture
+
 class DetailNode: ASDisplayNode {
+    
+    typealias Attributes = DetailNode
+    
+    let disposeBag = DisposeBag()
     
     // MARK: UI Properties
     let imageNode: ASNetworkImageNode = {
@@ -18,6 +24,7 @@ class DetailNode: ASDisplayNode {
         node.borderWidth = 1
         node.cornerRadius = 15
         node.clipsToBounds = true
+        node.contentMode = .scaleAspectFill
         return node
     }()
     
@@ -46,7 +53,7 @@ class DetailNode: ASDisplayNode {
         return node
     }()
     
-    let centerParagraphStyle: NSMutableParagraphStyle = {
+    static let centerParagraphStyle: NSMutableParagraphStyle = {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         return style
@@ -54,29 +61,28 @@ class DetailNode: ASDisplayNode {
     
     // MARK: Node Life Cycle
     
-    override init() {
+    init(viewModel: MovieViewModel) {
         super.init()
-        
+        self.backgroundColor = .white
         self.automaticallyManagesSubnodes = true
         self.automaticallyRelayoutOnSafeAreaChanges = true
         
-        self.titleNode.attributedText = NSAttributedString(string: "제목",
-                                                           attributes: [.font: UIFont.boldSystemFont(ofSize: 20),
-                                                                        .paragraphStyle: centerParagraphStyle])
+        viewModel.image.asDriver()
+            .drive(self.imageNode.rx.url)
+            .disposed(by: self.disposeBag)
+        
+        viewModel.title.asDriver()
+            .drive(self.titleNode.rx.text(Attributes.titleAttributes))
+            .disposed(by: self.disposeBag)
+        
         self.subtitleNode.attributedText = NSAttributedString(string: "부제목",
-                                                              attributes: [.font: UIFont.systemFont(ofSize: 16),
-                                                                           .foregroundColor: UIColor.gray,
-                                                                           .paragraphStyle: centerParagraphStyle])
+                                                              attributes: Attributes.subtitleAttributes)
         self.userRatingNode.attributedText = NSAttributedString(string: "0.0",
-                                                                attributes: [.font: UIFont.boldSystemFont(ofSize: 14),
-                                                                             .foregroundColor: UIColor.gray,
-                                                                             .paragraphStyle: centerParagraphStyle])
+                                                                attributes: Attributes.userRatingAttributes)
         self.directorNode.attributedText = NSAttributedString(string: "감독",
-                                                              attributes: [.font: UIFont.systemFont(ofSize: 14),
-                                                                           .foregroundColor: UIColor.gray])
+                                                              attributes: Attributes.textAttributes)
         self.actorNode.attributedText = NSAttributedString(string: "배우",
-                                                           attributes: [.font: UIFont.systemFont(ofSize: 14),
-                                                                        .foregroundColor: UIColor.gray])
+                                                           attributes: Attributes.textAttributes)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -110,5 +116,30 @@ class DetailNode: ASDisplayNode {
         containerInsets.left = 20.0
         
         return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
+    }
+}
+
+extension DetailNode {
+    
+    static var titleAttributes: [NSAttributedString.Key: Any] {
+        return [.font: UIFont.boldSystemFont(ofSize: 20),
+                .paragraphStyle: self.centerParagraphStyle]
+    }
+    
+    static var subtitleAttributes: [NSAttributedString.Key: Any] {
+        return [.font: UIFont.systemFont(ofSize: 16),
+        .foregroundColor: UIColor.gray,
+        .paragraphStyle: centerParagraphStyle]
+    }
+    
+    static var userRatingAttributes: [NSAttributedString.Key: Any] {
+        return [.font: UIFont.boldSystemFont(ofSize: 14),
+        .foregroundColor: UIColor.gray,
+        .paragraphStyle: centerParagraphStyle]
+    }
+    
+    static var textAttributes: [NSAttributedString.Key: Any] {
+        return [.font: UIFont.systemFont(ofSize: 14),
+        .foregroundColor: UIColor.gray]
     }
 }

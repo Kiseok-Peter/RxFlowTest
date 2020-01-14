@@ -37,4 +37,8 @@ class SearchViewModel {
 
 extension SearchViewModel: Stepper {
     
+    public func pick(index: Int) {
+        let viewModel = self.items.value[index]
+        self.steps.accept(AppStep.detail(viewModel: viewModel))
+    }
 }

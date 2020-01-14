@@ -10,4 +10,5 @@ import RxFlow
 
 enum AppStep: Step {
     case search
+    case detail(viewModel: MovieViewModel)
 }

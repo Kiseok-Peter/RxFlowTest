@@ -25,6 +25,8 @@ class AppFlow: Flow {
         switch step {
         case .search:
             return self.navigationToSearchScreen()
+        case .detail(let viewModel):
+            return self.navigationToDetailScreen(viewModel: viewModel)
         default:
             return .none
         }
@@ -48,7 +50,15 @@ class AppFlow: Flow {
         self.rootViewController.pushViewController(viewController, animated: true)
         
         return .one(flowContributor: FlowContributor.contribute(withNextPresentable: viewController,
-                                                                withNextStepper: OneStepper(withSingleStep: AppStep.search)))
+                                                                withNextStepper: viewController.viewModel))
+    }
+    
+    private func navigationToDetailScreen(viewModel: MovieViewModel) -> FlowContributors {
+        let viewController = DetailViewController.init(viewModel: viewModel)
+        
+        self.rootViewController.pushViewController(viewController, animated: true)
+        
+        return .none
     }
 }
 
